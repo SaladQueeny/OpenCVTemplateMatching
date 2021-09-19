@@ -305,7 +305,7 @@ void Homography(Mat src) {
 }
 int main() {
     bool checkPicture=false;
-    Mat tpl = cv::imread("C:\\Users\\User\\Desktop\\SummerPractice\\T4.png");
+    Mat tpl = cv::imread("T4.png");
     Mat cameraFeed;
     Mat for_homography;
     Mat HSV;
@@ -314,7 +314,7 @@ int main() {
     //capture.open(0);
     //capture.set(CAP_PROP_FRAME_WIDTH, FRAME_WIDTH);
     //capture.set(CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT);
-    capture.open("rtsp://192.168.1.11:554/h264.sdp?x1=2048&y1=1536");
+    capture.open(0);
     while (1) {
 
         capture.read(cameraFeed);
@@ -324,7 +324,7 @@ int main() {
         if (for_triangles.empty()||for_homography.empty()) {
             checkPicture = false;
             cout << "gg" << endl;
-            capture.open("rtsp://192.168.1.11:554/h264.sdp?x1=2048&y1=1536");
+            capture.open(0);
         }
         else {
             checkPicture = true;
